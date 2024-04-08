@@ -10,8 +10,8 @@ export class AuthenticationController {
   constructor(private authentication: AuthenticationService) {}
 
   @Post('signin')
-  signin(): any {
-    return this.authentication.signin();
+  async signin(@Body() request: AuthDto): Promise<any> {
+    return await this.authentication.signin(request);
   }
 
   @Post('signup')
